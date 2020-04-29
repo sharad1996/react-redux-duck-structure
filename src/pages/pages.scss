@@ -1,0 +1,1257 @@
+@import "../assets/var.scss";
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $default-font;
+  font-size: $default-size;
+  color: $color-black;
+  font-weight: 300;
+  margin: 0;
+  background: $color-lightest-gray;
+  min-height: 100%;
+
+  &.minimized {
+    grid-template-columns: 50px auto;
+  }
+
+}
+
+.all-container {
+  margin: 0;
+  min-height: 100%;
+}
+
+h1 {
+  font-family: $fancy-font;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: $fancy-font;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-family: $default-font;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: $default-font;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-family: $default-font;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0 0 20px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-family: $default-font;
+  font-weight: 300;
+  font-size: 12px;
+  margin: 0 0 20px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-medium-gray;
+}
+
+p {
+  font-size: 15px;
+  line-height: 18px;
+  margin: 0 0 20px;
+}
+
+a {
+  color: $color-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-dark-blue;
+  }
+
+}
+
+.hidden {
+  display: none !important;
+}
+
+.disabled {
+  color: lighten($color-black, 75%);
+}
+
+.link {
+  color: $color-blue;
+}
+
+label {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+
+  &[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid lighten($color-black, 80%);
+    margin: 0 0 5px;
+
+    &:read-only {
+      border: none;
+      padding: 0;
+      font-weight: 600;
+      background: transparent;
+      font-size: 15px;
+    }
+  }
+
+  &[type="checkbox"], &[type="radio"] {
+    margin: 0 10px 0 0;
+
+    & + label {
+      display: inline-block;
+    }
+
+  }
+
+  &[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: $color-blue;
+    color: $color-white;
+    border: none;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+      background: $color-dark-blue;
+    }
+  }
+
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: $color-black;
+  color: $color-white;
+  font-weight: 300;
+  border: none;
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+
+  i {
+    margin-right: 5px;
+  }
+
+  &.cancel {
+    background: $color-light-gray;
+    color: $color-black;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: .1;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+
+  }
+
+}
+
+select {
+  display: block;
+  line-height: 1.3;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 5px;
+  background-image: url(../assets/icon-select.svg);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  border: 1px solid lighten($color-black, 80%);
+  outline: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+}
+
+textarea {
+  border: 1px solid lighten($color-black, 80%);
+  border-radius: 5px;
+  min-height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.dropzone {
+  padding: 40px 20px;
+  border-radius: 5px;
+  border: 1px solid lighten($color-black, 80%);
+  text-align: center;
+  background: $color-lightest-gray;
+}
+
+.accessory-text {
+  font-size: 10px;
+  margin: 0 0 0 5px;
+
+  &::before {
+    content: "\f05a";
+    font-family: "Font Awesome 5 Pro";
+    margin: 0 10px 0 0;
+  }
+
+  &.error {
+    color: $color-red;
+
+    &::before {
+      content: "\f06a";
+    }
+
+  }
+
+}
+
+.file-size {
+  opacity: .25;
+}
+
+.file {
+
+  &::before {
+    content: "\f15b";
+    font-family: "Font Awesome 5 Pro";
+    margin: 0 10px 0 0;
+    font-size: 12px;
+  }
+
+  &.png::before { content: "\f1c5"; }
+  &.gif::before { content: "\f1c5"; }
+  &.jpeg::before { content: "\f1c5"; }
+  &.jpg::before { content: "\f1c5"; }
+  &.pdf::before { content: "\f1c1"; }
+  &.doc::before { content: "\f1c2"; }
+  &.ppt::before { content: "\f1c4"; }
+  &.xls::before { content: "\f1c3"; }
+  &.zip::before { content: "\f1c6"; }
+  &.csv::before { content: "\f6dd"; }
+
+}
+
+.form-set {
+  margin-bottom: 20px;
+}
+
+.page-content-wrapper {
+  width: calc(100% - 300px);
+  position: relative;
+  left: 300px;
+}
+
+.page-header {
+  border-bottom: 1px solid lighten($color-black, 75%);
+  margin: 20px 0 40px;
+}
+
+.page-content {
+  padding: 40px;
+}
+
+.grid {
+  display: grid;
+}
+
+.alert {
+  font-size: 12px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid $color-light-gray;
+  background: $color-lightest-gray;
+
+  .alert-message {
+
+    &::before {
+      content: "\f05a";
+      font-family: "Font Awesome 5 Pro";
+      margin: 0 10px 0 0;
+    }
+
+  }
+
+  &.error {
+    border-color: $color-dark-red;
+    background-color: $color-red;
+    color: $color-white;
+
+    .alert-message {
+
+      &::before {
+        content: "\f06a";
+      }
+
+    }
+
+  }
+
+  &.success {
+    border-color: $color-dark-green;
+    background-color: $color-green;
+    color: $color-white;
+
+    .alert-message {
+
+      &::before {
+        content: "\f058";
+      }
+
+    }
+
+  }
+
+  &.info {
+    border-color: $color-dark-blue;
+    background-color: $color-blue;
+    color: $color-white;
+  }
+
+}
+
+.table-grid-wrapper {
+
+  .table-grid {
+    // display: grid;
+    font-size: 12px;
+    background: $color-white;
+
+    &.headings  {
+      font-size: 10px;
+      text-transform: uppercase;
+      th {
+        font-weight: normal;
+        background: $color-lightest-gray;
+      }
+    }
+
+    &.headings {
+      th {
+        &.sortable {
+          &::before {
+            content: "\f0dc";
+            font-family: "Font Awesome 5 Pro";
+            margin: 0 10px 0 0;
+          }
+        }
+
+        &.sort-up {
+          &::before {
+            content: "\f0de";
+            font-family: "Font Awesome 5 Pro";
+            margin: 0 10px 0 0;
+            font-weight: 600;
+          }
+        }
+
+        &.sort-down {
+          &::before {
+            content: "\f0dd";
+            font-family: "Font Awesome 5 Pro";
+            margin: 0 10px 0 0;
+            font-weight: 600;
+          }
+        }
+      }
+
+    }
+
+    &.totals {
+      font-weight: 600;
+    }
+  }
+}
+
+.work-order {
+
+  .order-wrapper {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+
+    nav.order-nav {
+      padding: 20px 0;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        a {
+          color: $color-black;
+
+          &.settings li {
+            margin-top: 40px;
+          }
+
+        }
+
+        li {
+          padding: 10px;
+          text-align: right;
+
+          &.active {
+            background: $color-light-gray;
+          }
+
+          &:hover {
+            background: $color-light-gray;
+            cursor: pointer;
+          }
+
+          i {
+            width: 30px;
+            text-align: center;
+            margin-left: 20px;
+          }
+
+        }
+
+      }
+
+    }
+
+    .order-tasks {
+
+      .table-grid {
+
+        &.headings {
+
+          .priority {
+            padding: 0 10px 10px;
+            text-align: left;
+          }
+
+        }
+
+        .submitted-on, .due, .controls {
+          text-align: right;
+        }
+
+        .extra-time {
+          text-align: center;
+        }
+
+        .attention {
+
+          &::before {
+            content: "\f111";
+            font-family: "Font Awesome 5 Pro";
+            margin-right: 10px;
+            color: $color-red;
+            font-weight: bold;
+          }
+
+        }
+
+        .controls {
+          color: $color-blue;
+          cursor: pointer;
+
+          .table-control.view::after {
+            content: "\f061";
+            font-family: "Font Awesome 5 Pro";
+            margin-left: 10px;
+          }
+
+        }
+
+      }
+
+    }
+
+    .order-assignments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 40px;
+      margin: 0 0 40px;
+
+      .assignment {
+        padding: 20px;
+        background: $color-white;
+        border: 1px solid lighten($color-black, 75%);
+        border-radius: 5px;
+
+        .role {
+          font-weight: 600;
+          margin: 0 0 20px;
+
+          i {
+            width: 20px;
+          }
+
+        }
+
+        .role-select {
+          margin: 0 0 20px;
+        }
+
+      }
+
+    }
+
+    .order-content {
+      padding: 0 0 0 40px;
+      border-left: 1px solid lighten($color-black, 75%);
+
+      .order-header {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        margin: 0 0 20px;
+
+        h2 {
+          margin: 4px 0 0;
+        }
+
+        button {
+          margin: 0;
+        }
+
+      }
+
+      .order-users {
+
+        .new-user {
+          border: 1px solid lighten($color-black, 75%);
+          margin: 0 0 20px;
+          padding: 20px;
+          background: $color-white;
+        }
+
+        .table-grid {
+          grid-template-columns: 2fr 2fr 1fr;
+
+          &.internal {
+
+            .name {
+
+              &::before {
+                content: "\f111";
+                font-family: "Font Awesome 5 Pro";
+                margin-right: 10px;
+                font-weight: 600;
+              }
+
+            }
+
+          }
+
+          .table-control {
+            color: $color-blue;
+            cursor: pointer;
+            text-align: right;
+          }
+
+          .table-control.trash::after {
+            content: "\f2ed";
+            font-family: "Font Awesome 5 Pro";
+            margin-left: 10px;
+          }
+
+        }
+
+      }
+
+      .order-files {
+
+        .table-grid {
+          &:nth-child(even) {
+            background-color: $color-lightest-gray;
+          }
+
+          &.internal {
+
+            .name {
+
+              &::before {
+                content: "\f111";
+                font-family: "Font Awesome 5 Pro";
+                margin-right: 10px;
+                font-weight: 600;
+              }
+
+            }
+
+          }
+
+          .date, .controls {
+            text-align: right;
+          }
+
+          .table-control {
+            color: $color-blue;
+            cursor: pointer;
+          }
+
+          .table-control.download::after {
+            content: "\f019";
+            font-family: "Font Awesome 5 Pro";
+            margin-left: 10px;
+          }
+
+        }
+
+      }
+
+      .order-discussion {
+
+        .comment {
+          border: 1px solid lighten($color-black, 75%);
+          margin: 0 0 20px;
+          padding: 20px;
+          background: $color-white;
+
+          .flag {
+            background: $color-black;
+            color: $color-white;
+            display: table;
+            padding: 10px 20px;
+            margin: 0 0 20px -21px;
+            font-size: 12px;
+            text-transform: uppercase;
+          }
+
+          .meta {
+            margin: 0 0 20px;
+            font-size: 12px;
+
+            &::before {
+              content: "\f05a";
+              font-family: "Font Awesome 5 Pro";
+              margin-right: 10px;
+            }
+
+          }
+
+          .label {
+            font-size: 10px;
+            margin: 20px 0 5px;
+            text-transform: uppercase;
+          }
+
+          .related {
+            margin: 0 0 20px;
+            font-size: 12px;
+
+            &::before {
+              content: "\f05a";
+              font-family: "Font Awesome 5 Pro";
+              margin-right: 10px;
+            }
+
+          }
+
+          .files {
+
+            ul {
+              margin: 0;
+              padding: 0;
+              list-style: none;
+
+              li {
+                margin: 0 0 5px;
+
+                .file-size {
+                  margin-left: 10px;
+                }
+
+              }
+
+            }
+
+          }
+
+          .comment-controls {
+            margin: 20px -20px -20px;
+            background: $color-lightest-gray;
+            padding: 20px 20px 0;
+            border-top: 1px solid lighten($color-black, 75%);
+
+            .meta {
+              margin: 0;
+              padding: 0 0 20px;
+            }
+
+            form {
+              display: grid;
+              grid-template-columns: 4fr 1fr;
+              grid-gap: 40px;
+            }
+
+          }
+
+        }
+
+      }
+
+      .order-services {
+        padding: 0 0 20px 0;
+
+        .table-grid {
+          grid-template-columns: 1fr 1fr .35fr .75fr .75fr;
+          grid-gap: 0;
+
+          .quantity, .time, .controls {
+            text-align: right;
+          }
+
+          .controls {
+            color: $color-blue;
+
+            .table-control {
+              display: inline-block;
+              margin-left: 10px;
+
+              &:hover {
+                cursor: pointer;
+              }
+
+            }
+
+          }
+
+          &.expanded {
+            background: $color-white;
+
+            > div {
+              border-bottom: 1px solid lighten($color-black, 75%);
+            }
+
+            .controls {
+              border-bottom: none;
+              cursor: pointer;
+
+              .table-control.view::after {
+                content: "\f146";
+                font-family: "Font Awesome 5 Pro";
+                margin-left: 10px;
+              }
+
+            }
+
+            .expanded-content {
+              grid-column: 1 / 6;
+              grid-template-columns: 2fr 1fr;
+              grid-gap: 20px;
+              border-top: none;
+              padding: 20px 20px 40px;
+              border-bottom: none;
+              border-left: 1px solid lighten($color-black, 75%);
+
+              h3 {
+                grid-column: 1 / 3;
+                margin-bottom: 0;
+              }
+
+              .standard-instructions {
+                padding-right: 20px;
+              }
+
+              .custom-instructions {
+                padding-left: 40px;
+                border-left: 1px solid lighten($color-black, 75%);
+              }
+
+              .instruction {
+                margin-bottom: 20px;
+
+                .instruction-label {
+                  margin-bottom: 5px;
+                  text-transform: uppercase;
+                  font-size: 10px;
+                }
+
+                .instruction-value {
+                  font-weight: 300;
+
+                  ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                      margin: 0 0 5px 10px;
+
+                      &::before {
+                        content: "\f105";
+                        font-family: "Font Awesome 5 Pro";
+                        margin-top: 2px;
+                        margin-left: -10px;
+                        display: table;
+                        float: left;
+                      }
+
+                    }
+
+                  }
+
+                  ul.files {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    font-weight: 300;
+
+                    li {
+                      margin: 0 0 5px;
+
+                      &::before {
+                        display: none;
+                      }
+
+                      .file-size {
+                        margin-left: 10px;
+                      }
+
+                    }
+
+                  }
+
+                }
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      .order-stream {
+        margin-left: 10px;
+        border-left: 1px solid lighten($color-black, 75%);
+
+        .event {
+          margin-bottom: 40px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .event-node {
+            border: 1px solid lighten($color-black, 75%);
+            background-color: $color-white;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            margin-left: -11px;
+          }
+
+          &.internal {
+
+            .event-node {
+              background-color: lighten($color-black, 75%);
+            }
+
+          }
+
+          .event-content {
+
+            .date {
+              font-weight: 600;
+              margin-bottom: 20px;
+            }
+
+            .synopsis {
+
+              a {
+                font-style: italic;
+              }
+
+            }
+
+            .details {
+              margin-bottom: 20px;
+            }
+
+            .files {
+
+              ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                  margin: 0 0 5px;
+
+                  .file-size {
+                    margin-left: 10px;
+                  }
+
+                }
+
+              }
+
+            }
+
+            .label {
+              font-size: 10px;
+              text-transform: uppercase;
+              margin: 20px 0 5px;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.work-order .order-wrapper {
+  display: grid;
+  grid-template-columns: 180px 1fr; }
+.work-order .order-wrapper nav.order-nav {
+  padding: 20px 0; }
+.work-order .order-wrapper nav.order-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+.work-order .order-wrapper nav.order-nav ul a {
+  color: #111111; }
+.work-order .order-wrapper nav.order-nav ul a.settings li {
+  margin-top: 40px; }
+.work-order .order-wrapper nav.order-nav ul li {
+  padding: 10px;
+  text-align: right; }
+.work-order .order-wrapper nav.order-nav ul li.active {
+  background: #E7E7E7; }
+.work-order .order-wrapper nav.order-nav ul li:hover {
+  background: #E7E7E7;
+  cursor: pointer; }
+.work-order .order-wrapper nav.order-nav ul li i {
+  width: 30px;
+  text-align: center;
+  margin-left: 20px; }
+
+.page-header .order-highlights, .page-header .task-highlights {
+  grid-column: 1 / 3;
+  padding: 10px 0;
+  border-top: 1px solid #d0d0d0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px; }
+  .page-header .order-highlights .highlight, .page-header .task-highlights .highlight {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    border-right: 1px solid #d0d0d0; }
+    .page-header .order-highlights .highlight:last-child, .page-header .task-highlights .highlight:last-child {
+      border-right: none; }
+    .page-header .order-highlights .highlight .icon, .page-header .task-highlights .highlight .icon {
+      grid-row: 1 / 3;
+      padding: 8px 5px 5px 0;
+      text-align: center; }
+      .page-header .order-highlights .highlight .icon i, .page-header .task-highlights .highlight .icon i {
+        font-size: 20px; }
+    .page-header .order-highlights .highlight .value, .page-header .task-highlights .highlight .value {
+      font-size: 15px;
+      font-weight: 600; }
+    .page-header .order-highlights .highlight .label, .page-header .task-highlights .highlight .label {
+      font-size: 12px;
+      text-transform: uppercase; }
+
+
+@import "../assets/var";
+
+.work-order-new {
+  .table-grid {
+    &:nth-child(even) {
+      background-color: $color-lightest-gray;
+    }
+  }
+}
+
+.work-order-list {
+  .table-grid {
+    &:nth-child(even) {
+      background-color: $color-lightest-gray;
+    }
+
+    .priority {
+      text-align: center;
+
+      &.locked {
+        padding: 10px !important;
+
+        &::before {
+          content: "\f30d";
+          font-family: "Font Awesome 5 Pro";
+          margin-right: 10px;
+        }
+
+      }
+
+      .priority-set {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        > div {
+          border-right: 1px solid lighten($color-black, 75%);
+          padding: 12px 10px;
+
+          &:last-child {
+            border-right: none;
+          }
+
+        }
+
+      }
+
+    }
+
+    &.headings {
+
+      .priority {
+        padding: 0 10px 10px;
+        text-align: left;
+      }
+
+    }
+
+    .submitted-on, .delivery, .controls {
+      text-align: right;
+    }
+
+    .extra-time {
+      text-align: center;
+    }
+
+    .controls {
+      color: $color-blue;
+      cursor: pointer;
+
+      .table-control.view::after {
+        content: "\f061";
+        font-family: "Font Awesome 5 Pro";
+        margin-left: 10px;
+      }
+
+    }
+
+    .archive {
+      grid-column: 1 / 8;
+      text-align: center;
+      border-right: 1px dashed lighten($color-black, 75%);
+      border-left: 1px dashed lighten($color-black, 75%);
+      border-bottom: 1px dashed lighten($color-black, 75%);
+    }
+
+  }
+}
+
+
+.work-order-information {
+  padding-right: 40px;
+  border-right: 1px solid lighten($color-black, 75%);
+}
+
+.requested-services {
+  .type {
+    width: 55%;
+  }
+  .controls {
+    width: 20%;
+  }
+
+  .table-grid {
+    .quantity, .time, .controls {
+      text-align: right;
+    }
+
+    .controls {
+      color: $color-blue;
+
+      .table-control {
+        display: inline-block;
+        margin-left: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+      }
+
+    }
+
+    .add-service {
+      grid-column: 1 / 5;
+      text-align: center;
+      color: $color-blue;
+      background: $color-lightest-gray;
+      border-right: 1px dashed lighten($color-black, 75%);
+      border-left: 1px dashed lighten($color-black, 75%);
+      border-bottom: 1px dashed lighten($color-black, 75%);
+
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+
+    &.expanded {
+      .controls {
+        border-bottom: none;
+        cursor: pointer;
+
+        .table-control.view::after {
+          content: "\f146";
+          font-family: "Font Awesome 5 Pro";
+          margin-left: 10px;
+        }
+
+      }
+    }
+    .expanded-content {
+
+      .standard-instructions {
+        padding-right: 20px;
+      }
+
+      .custom-instructions {
+        padding-left: 40px;
+        border-left: 1px solid lighten($color-black, 75%);
+      }
+
+      .instruction {
+        margin-bottom: 20px;
+
+        .instruction-label {
+          margin-bottom: 5px;
+        }
+
+        .instruction-value {
+          font-weight: 300;
+
+          ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+              margin: 0 0 5px 10px;
+
+              &::before {
+                content: "\f105";
+                font-family: "Font Awesome 5 Pro";
+                margin-top: 2px;
+                margin-left: -10px;
+                display: table;
+                float: left;
+              }
+
+            }
+
+          }
+
+          ul.files {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-weight: 300;
+
+            li {
+              margin: 0 0 5px;
+
+              &::before {
+                display: none;
+              }
+
+              .file-size {
+                margin-left: 10px;
+              }
+
+            }
+
+          }
+
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+  .service-form {
+    padding: 20px;
+    margin: 20px 0;
+    background: $color-white;
+    border: 1px solid lighten($color-black, 75%);
+
+    form {
+
+      .standard-fields {
+      }
+
+      .custom-fields {
+        border-left: 1px solid lighten($color-black, 75%);
+        padding: 0 0 0 40px;
+      }
+
+    }
+
+  }
+
+}
+
